@@ -107,12 +107,14 @@ export function EnvironmentCards({initialData}: EnvironmentCardsProps) {
             <Card className="glass-card">
                 <CardHeader>
                     <div className="flex items-center justify-between">
-                        <div><CardTitle>Test
-                            Environment</CardTitle><CardDescription>Development/testing</CardDescription></div>
-                        {testDetails.IsActive ? <Badge variant="outline"
-                                                       className="bg-green-500/10 text-green-500 border-green-500/20">Active</Badge> :
-                            <Badge variant="outline"
-                                   className="bg-muted/20 text-muted-foreground border-muted/20">Inactive</Badge>}
+                        <div>
+                            <CardTitle>Test Environment</CardTitle>
+                            <CardDescription>Development/testing</CardDescription>
+                        </div>
+                        {testDetails.IsActive ?
+                            <Badge variant="outline" className="bg-green-500/10 text-green-500 border-green-500/20">Active</Badge> :
+                            <Badge variant="outline" className="bg-muted/20 text-muted-foreground border-muted/20">Inactive</Badge>
+                        }
                     </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -163,12 +165,14 @@ export function EnvironmentCards({initialData}: EnvironmentCardsProps) {
             <Card className="glass-card">
                 <CardHeader>
                     <div className="flex items-center justify-between">
-                        <div><CardTitle>Production Environment</CardTitle><CardDescription>Live
-                            deployment</CardDescription></div>
-                        {prodDetails.IsActive ? <Badge variant="outline"
-                                                       className="bg-green-500/10 text-green-500 border-green-500/20">Active</Badge> :
-                            <Badge variant="outline"
-                                   className="bg-muted/20 text-muted-foreground border-muted/20">Inactive</Badge>}
+                        <div>
+                            <CardTitle>Production Environment</CardTitle>
+                            <CardDescription>Live deployment</CardDescription>
+                        </div>
+                        {prodDetails.IsActive ?
+                            <Badge variant="outline" className="bg-green-500/10 text-green-500 border-green-500/20">Active</Badge> :
+                            <Badge variant="outline" className="bg-muted/20 text-muted-foreground border-muted/20">Inactive</Badge>
+                        }
                     </div>
                 </CardHeader>
                 <CardContent className="space-y-4">

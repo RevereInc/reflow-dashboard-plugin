@@ -172,7 +172,7 @@ async function DeploymentsList() {
                                     </div>
                                     <DeploymentActions
                                         projectName={project.Name}
-                                        environment="test"
+                                        environment="prod"
                                         isActive={isProdActive}
                                     />
                                 </div>
