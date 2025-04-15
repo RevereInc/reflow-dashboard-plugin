@@ -3,21 +3,25 @@ version: "0.1.0"
 description: A web dashboard for viewing and managing Reflow projects.
 type: container
 container:
-  dockerfile: Dockerfile # Points to the Dockerfile in this repo
-  # buildArgs: # Example if needed later
-  #   SOME_ARG: value
-  # env: # Example if needed later
-  #   API_ENDPOINT: "{{config.apiEndpoint}}" # Value from setup prompt
+  dockerfile: Dockerfile
+  env:
+    NEXT_PUBLIC_REFLOW_API_HOST: "{{config.apiHost}}"
+    NEXT_PUBLIC_REFLOW_API_PORT: "{{config.apiPort}}"
 nginx:
   useDefaultTemplate: true
-  # Explicitly state port for clarity, matches Dockerfile EXPOSE/CMD
   containerPort: 3000
 setup:
   - key: domain
     prompt: "Enter the desired domain for the dashboard (e.g., dashboard.reflow.local)"
     required: true
     description: "The domain name Nginx will use to route traffic to the dashboard."
-  # - key: apiEndpoint # Example prompt for later features
-  #   prompt: "Enter the API endpoint Reflow data can be fetched from"
-  #   required: false
-  #   default: ""
+  - key: apiHost
+    prompt: "Enter the hostname/IP where the Reflow API server is listening"
+    required: true
+    default: "localhost" # Default as Reflow API server runs locally
+    description: "Usually 'localhost' unless Reflow server runs elsewhere relative to plugins."
+  - key: apiPort
+    prompt: "Enter the port the Reflow API server is listening on"
+    required: true
+    default: "8585" # Default port configured in internal/api/server.go
+    description: "The port specified when running 'reflow server start'."
